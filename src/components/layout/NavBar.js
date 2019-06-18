@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from "prop-types";
+import {Link} from "react-router-dom"
 
 const NavBar = ({icon, title}) => {
     return (
@@ -8,6 +9,12 @@ const NavBar = ({icon, title}) => {
                 {/*If you split this in two lines, you won't have a space in the middle*/}
                 <i className={icon} /> {title}
             </h1>
+            <ul>
+                <li>
+                    <Link to="/">Home</Link>
+                    <Link to="/about">About</Link>
+                </li>
+            </ul>
         </nav>
     );
 }

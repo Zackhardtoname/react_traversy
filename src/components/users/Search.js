@@ -21,7 +21,6 @@ class Search extends Component {
         }
         else {
             this.props.searchUsers(this.state.text)
-            this.props.setAlert(null, "light")
             // this.setState({text: ""})
         }
     }
