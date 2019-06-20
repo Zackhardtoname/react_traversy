@@ -11,10 +11,10 @@ const AlertState = props => {
 
     const [state, dispatch] = useReducer(AlertReducer, initialState)
 
-    const setAlert = (msg, type) => {
+    const setAlert = (msg, style_type) => {
         dispatch({
             type: SET_ALERT,
-            payload: {msg, type},
+            payload: {msg, style_type},
         })
 
         setTimeout(() =>
@@ -23,7 +23,7 @@ const AlertState = props => {
             }), 5000)
     }
 
-    return <AlertContext.Provider
+    return (<AlertContext.Provider
         value={{
             alert: state,
             setAlert
@@ -31,6 +31,7 @@ const AlertState = props => {
     >
         {props.children}
     </AlertContext.Provider>
+    )
 }
 
 export default AlertState
