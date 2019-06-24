@@ -20,7 +20,7 @@ const NavBar = ({icon, title}) => {
 }
 
 NavBar.defaultProps = {
-    title: "Github Finder",
+    title: "Githuber Search Engine",
     icon: "fab fa-github"
 }
 
