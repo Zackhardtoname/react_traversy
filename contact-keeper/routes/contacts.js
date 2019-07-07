@@ -51,7 +51,6 @@ router.put("/:id", auth, async (req, res) => {
     // Object Destructuring and property shorthand (https://stackoverflow.com/questions/17781472/how-to-get-a-subset-of-a-javascript-objects-properties)
     const contactFields = (({name, email, phone, type}) => ({name, email, phone, type}))(req.body)
     Object.keys(contactFields).forEach((key) => (contactFields[key] == null) && delete contactFields[key]);
-    console.log(contactFields)
 
     try {
         let contact = await Contact.findById(req.params.id);

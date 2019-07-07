@@ -1,6 +1,7 @@
 const jwt  = require("jsonwebtoken")
 const config = require("config")
 
+// used to ensure there is a token in the response header
 module.exports = function(req, res, next) {
     //    Get the token from the header
     const token = req.header("x-auth-token")
