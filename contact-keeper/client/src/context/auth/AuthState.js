@@ -14,18 +14,6 @@ import {
     CLEAR_ERRORS
 } from "../types"
 
-let ContactClientId;
-let ContactClientSecret;
-
-// if (process.env.NODE_ENV !== "production") {
-//     ContactClientId = process.env.REACT_APP_Contact_CLIENT_ID
-//     ContactClientSecret = process.env.REACT_APP_Contact_CLIENT_SECRET
-// }
-// else {
-//     ContactClientId = process.env.Contact_CLIENT_ID
-//     ContactClientSecret = process.env.Contact_CLIENT_SECRET
-// }
-
 const AuthState = props =>    {
     const initialState = {
         token: localStorage.getItem("token"),

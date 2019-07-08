@@ -1,6 +1,7 @@
 //node not supporting ES6 so using 'common JA' yet (alternatively use a transpiler)
 const express = require("express")
 const connectDB = require("./config/db")
+const path = require("path")
 const app = express()
 
 connectDB()
@@ -8,10 +9,19 @@ connectDB()
 // Init Middleware
 app.use(express.json({extended: false}))
 
-app.get("/", (req, res) => res.json({msg: "hello world"}))
 app.use("/api/users", require("./routes/users"))
 app.use("/api/auth", require("./routes/auth"))
 app.use("/api/contacts", require("./routes/contacts"))
+
+// Serve static assets in production
+if (process.env.NODE_ENV === "production") {
+    // Set static folder
+    app.use(express.static("client/build"))
+    // Below the three specific routes above -- excluding those
+    app.get("*", (req, res) => {
+        res.sendFile(path.resolve(__dirname, "client", "build", "index.html"))
+    })
+}
 
 const PORT = process.env.PORT || 5000
 
